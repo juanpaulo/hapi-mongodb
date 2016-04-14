@@ -1,0 +1,33 @@
+{
+  "name": "hapi-mongodb",
+  "version": "1.0.0",
+  "description": "Yet another REST API on hapi.js and MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juanpaulo/hapi-mongodb.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "hapijs",
+    "hapi",
+    "mongodb",
+    "mongo",
+    "nodejs",
+    "node"
+  ],
+  "author": "Juan Paulo Gutierrez <juanpaulo.gutierrez@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juanpaulo/hapi-mongodb/issues"
+  },
+  "homepage": "https://github.com/juanpaulo/hapi-mongodb",
+  "dependencies": {
+    "hapi": "^13.3.0",
+    "mongodb": "^2.1.16"
+  }
+}
