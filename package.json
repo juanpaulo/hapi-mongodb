@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/juanpaulo/hapi-mongodb",
   "dependencies": {
+    "foreman": "^1.4.1",
     "hapi": "^13.3.0",
     "mongodb": "^2.1.16"
   }
