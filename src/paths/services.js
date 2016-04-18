@@ -1,10 +1,6 @@
 /*jslint node: true */
 'use strict';
 
-// const MongoClient = require('mongodb').MongoClient;
-// const assert = require('assert');
-// const ObjectId = require('mongodb').ObjectID;
-// const url = `mongodb://${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/${process.env.MONGODB_DB}`;
 const assert = require('assert');
 
 let body = {};
@@ -43,7 +39,6 @@ exports.handleRequest = function(request, reply, db) {
       // TODO
       break;
     default:
-      // return error code
+      // return error code 404?
   }
-
 };
