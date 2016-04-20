@@ -23,40 +23,52 @@ server.route({
     services.handleRequest(request, reply, database)
 });
 
+server.route({
+  method: ['POST', 'GET', 'PUT', 'DELETE'],
+  path: '/pages/{id?}',
+  handler: (request, reply) =>
+    services.handleRequest(request, reply, database)
+});
+
+server.route({
+  method: ['POST', 'GET', 'PUT', 'DELETE'],
+  path: '/tags/{id?}',
+  handler: (request, reply) =>
+    services.handleRequest(request, reply, database)
+});
+
 // MongoDB constants
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 const ObjectId = require('mongodb').ObjectID;
 const url = `mongodb://${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/${process.env.MONGODB_DB}`;
 
-MongoClient.connect(url, function(err, db) {
-  assert.equal(null, err);
-  console.log(`MongoDB client connected to ${url}`);
-
-  database = db;
-
-  server.register({
-    register: Good,
-    options: {
-      reporters: [{
-        reporter: require('good-console'),
-        events: {
-            response: '*',
-            log: '*'
-        }
-      }]
-    }
-  }, (err) => {
-    if (err) {
-      throw err; // something bad happened loading the plugin
-    }
-    server.start((err) => {
-      if (err) {
-        throw err;
+server.register({
+  register: Good,
+  options: {
+    reporters: [{
+      reporter: require('good-console'),
+      events: {
+          response: '*',
+          log: '*'
       }
-      server.log('info', 'Hapi server started at: ' + server.info.uri);
+    }]
+  }
+}, (err) => {
+  if (err) {
+    throw err;
+  }
+  server.start((err) => {
+    if (err) {
+      throw err;
+    }
+    server.log('info', 'Hapi server started at: ' + server.info.uri);
+
+    MongoClient.connect(url, function(err, db) {
+      assert.equal(null, err);
+      console.log(`MongoDB client connected to ${url}`);
+
+      database = db;
     });
   });
-
-  db.close();
 });

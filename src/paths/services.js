@@ -9,7 +9,11 @@ exports.handleRequest = function(request, reply, db) {
   // console.log(request);
   switch(request.method.toUpperCase()) {
     case 'POST':
-      // TODO
+      // TODO validation for request body
+      db.collection('services').insertOne({'foo':'bar'}, (err, result) =>
+        // assert.equal(err, null)
+        reply("Inserted a document into the restaurants collection.").code(201)
+      );
       break;
     case 'GET':
       if(request.query.accountId || request.query.serviceId) {
