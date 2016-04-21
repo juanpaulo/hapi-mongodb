@@ -1,1 +1,1 @@
-api: nodemon server.js
+api: nodemon lib/index.js
