@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/juanpaulo/restful-mongo",
   "dependencies": {
+    "boom": "^3.1.2",
     "foreman": "^1.4.1",
     "good": "^6.6.0",
     "good-console": "^5.3.1",
